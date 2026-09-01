@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matadeira | Método Mestre da Pesca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topo">
+
+    <div class="logo">
+        <img src="logo.png" alt="Matadeira">
+    </div>
+
+    <span>CURSO ONLINE DE PESCA</span>
+
+    <!-- BOTÃO DA CONTA -->
+    <button class="usuario-botao" onclick="abrirConta()" aria-label="Criar conta">
+        <span class="icone-usuario">👤</span>
+        <span class="texto-conta">Minha conta</span>
+    </button>
+
+</header>
+
+
+<!-- PAINEL DE CRIAR CONTA -->
+
+<div class="overlay" id="overlay" onclick="fecharConta()"></div>
+
+<aside class="conta-painel" id="contaPainel">
+
+    <div class="conta-topo">
+        <div>
+            <strong>Criar sua conta</strong>
+            <small>Preencha seus dados</small>
+        </div>
+
+        <button onclick="fecharConta()">×</button>
+    </div>
+
+    <form id="formConta" onsubmit="criarConta(event)">
+
+        <div class="campo-conta">
+
+            <label for="nomeConta">Nome completo</label>
+
+            <input
+                type="text"
+                id="nomeConta"
+                placeholder="Digite seu nome completo"
+                required
+                minlength="3"
+            >
+
+            <small class="erro" id="erroNome"></small>
+
+        </div>
+
+
+        <div class="campo-conta">
+
+            <label for="emailConta">E-mail</label>
+
+            <input
+                type="email"
+                id="emailConta"
+                placeholder="seuemail@exemplo.com"
+                required
+            >
+
+            <small class="erro" id="erroEmail"></small>
+
+        </div>
+
+
+        <div class="campo-conta">
+
+            <label for="senhaConta">Senha</label>
+
+            <input
+                type="password"
+                id="senhaConta"
+                placeholder="Crie uma senha"
+                required
+                minlength="6"
+            >
+
+            <small class="erro" id="erroSenha"></small>
+
+        </div>
+
+
+        <div class="campo-conta">
+
+            <label for="confirmarSenha">Confirmar senha</label>
+
+            <input
+                type="password"
+                id="confirmarSenha"
+                placeholder="Digite a senha novamente"
+                required
+            >
+
+            <small class="erro" id="erroConfirmacao"></small>
+
+        </div>
+
+
+        <button class="botao-conta" type="submit">
+            CRIAR CONTA
+        </button>
+
+        <p class="conta-aviso">
+            Página demonstrativa. A conta não será realmente criada.
+        </p>
+
+    </form>
+
+</aside>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-conteudo">
+
+        <div class="tag">
+            MÉTODO MESTRE DA PESCA
+        </div>
+
+        <h1>
+            Aprenda a pescar mais com
+            <span>iscas artificiais</span>
+        </h1>
+
+        <p>
+            Descubra técnicas práticas para escolher,
+            trabalhar e utilizar iscas artificiais de forma
+            muito mais eficiente nas suas pescarias.
+        </p>
+
+
+        <div class="oferta">
+
+            <strong>
+                🔥 OFERTA ESPECIAL POR TEMPO LIMITADO
+            </strong>
+
+            <div class="preco-antigo">
+                De R$ 79,90
+            </div>
+
+            <div class="preco">
+                R$ 49,90
+            </div>
+
+            <small>
+                Acesso online • Pagamento único
+            </small>
+
+        </div>
+
+
+        <a href="checkout.html" class="botao">
+            QUERO ACESSAR O CURSO →
+        </a>
+
+
+        <div class="seguranca">
+            🔒 Acesso online • 📱 Assista onde quiser
+        </div>
+
+    </div>
+
+
+
+    <!-- CAPA DO CURSO -->
+
+    <div class="hero-visual">
+
+        <div class="capa-curso">
+
+            <!--
+                COLOQUE A FOTO EDITADA NESTE ARQUIVO:
+
+                capa-curso.jpg
+
+                na mesma pasta deste index.html.
+            -->
+
+            <img
+                src="capa-curso.jpg"
+                alt="Método Mestre da Pesca"
+                class="imagem-capa"
+                onerror="this.style.display='none'; document.getElementById('placeholderCapa').style.display='flex';"
+            >
+
+            <div class="placeholder-capa" id="placeholderCapa">
+
+                <div class="placeholder-icone">
+                    🖼️
+                </div>
+
+                <strong>
+                    CAPA DO CURSO
+                </strong>
+
+                <small>
+                    Coloque aqui sua imagem
+                </small>
+
+            </div>
+
+
+            <div class="legenda-capa">
+                <strong>
+                    Método Mestre da Pesca
+                </strong>
+
+                <span>
+                    Aprenda a pescar com iscas artificiais
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- APRENDA -->
+
+<section class="aprenda">
+
+    <div class="titulo">
+
+        <div class="tag">
+            O QUE VOCÊ VAI APRENDER
+        </div>
+
+        <h2>
+            Técnicas para transformar
+            sua próxima pescaria
+        </h2>
+
+        <p>
+            Um conteúdo direto ao ponto para você
+            evoluir na pesca com iscas artificiais.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icone">🎣</div>
+
+            <h3>Escolha da isca</h3>
+
+            <p>
+                Aprenda a escolher a isca mais adequada
+                para diferentes situações de pesca.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icone">🐟</div>
+
+            <h3>Encontre os peixes</h3>
+
+            <p>
+                Entenda melhor onde procurar os peixes
+                e como aumentar suas chances.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icone">🌊</div>
+
+            <h3>Trabalho da isca</h3>
+
+            <p>
+                Aprenda conceitos de movimentação,
+                velocidade e apresentação da isca.
+            </p>
+        </div>
+
+
+        <div class="card">
+            <div class="icone">🏆</div>
+
+            <h3>Evolua na pesca</h3>
+
+            <p>
+                Desenvolva sua técnica e aproveite
+                ainda mais cada pescaria.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CHAMADA -->
+
+<section class="chamada">
+
+    <div>
+
+        <div class="tag">
+            MÉTODO MESTRE DA PESCA
+        </div>
+
+        <h2>
+            Chega de pescar sempre do mesmo jeito.
+        </h2>
+
+        <p>
+            Tenha acesso ao curso e comece a aprender
+            novas estratégias para suas pescarias.
+        </p>
+
+    </div>
+
+
+    <div class="chamada-direita">
+
+        <span>POR APENAS</span>
+
+        <strong>R$ 49,90</strong>
+
+        <a href="checkout.html" class="botao">
+            QUERO APRENDER
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="tag">
+        SUA PRÓXIMA PESCARIA COMEÇA AQUI
+    </div>
+
+    <h2>
+        Pronto para evoluir na pesca?
+    </h2>
+
+    <p>
+        Acesse o Método Mestre da Pesca por apenas
+        <strong>R$ 49,90</strong>.
+    </p>
+
+    <a href="checkout.html" class="botao">
+        QUERO ACESSAR O CURSO →
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <div class="logo-footer">
+        <img src="logo.png" alt="Matadeira">
+    </div>
+
+    <p>
+        © 2026 Matadeira • Método Mestre da Pesca
+    </p>
+
+    <small>
+        Página demonstrativa
+    </small>
+
+</footer>
+
+
+
+<!-- CHAT -->
+
+<div class="chat">
+
+    <button class="chat-botao" onclick="abrirChat()">
+        ❓ <span>Alguma dúvida?</span>
+    </button>
+
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-topo">
+
+            <strong>
+                Podemos ajudar?
+            </strong>
+
+            <button onclick="fecharChat()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="chat-mensagens" id="chatMensagens">
+
+            <div class="mensagem equipe">
+                Olá! 👋<br>
+                Tem alguma dúvida sobre o curso?
+                Mande sua pergunta aqui e nossa equipe
+                responderá assim que possível.
+            </div>
+
+        </div>
+
+
+        <div class="chat-envio">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Digite sua dúvida..."
+                onkeydown="teclaEnviar(event)"
+            >
+
+            <button onclick="enviarMensagem()">
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

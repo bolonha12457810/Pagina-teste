@@ -1,0 +1,1003 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7f5;
+    color: #17231b;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.topo {
+    height: 80px;
+    background: #10251a;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8%;
+
+    color: white;
+}
+
+.logo img {
+    max-width: 150px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.topo > span {
+    margin-left: auto;
+    margin-right: 25px;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* BOTÃO CONTA */
+
+.usuario-botao {
+    border: 1px solid rgba(255,255,255,.25);
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+
+    border-radius: 25px;
+
+    padding: 9px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 12px;
+
+    transition: .2s;
+}
+
+.usuario-botao:hover {
+    background: rgba(255,255,255,.16);
+}
+
+.icone-usuario {
+    font-size: 19px;
+}
+
+
+/* =========================
+   PAINEL DE CONTA
+========================= */
+
+.overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.4);
+
+    z-index: 9998;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .25s;
+}
+
+.overlay.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.conta-painel {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 390px;
+    max-width: 100%;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 9999;
+
+    padding: 28px;
+
+    box-shadow: -10px 0 40px rgba(0,0,0,.18);
+
+    transform: translateX(100%);
+
+    transition: .3s;
+
+    overflow-y: auto;
+}
+
+.conta-painel.aberto {
+    transform: translateX(0);
+}
+
+.conta-topo {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+.conta-topo strong {
+    display: block;
+
+    font-size: 24px;
+
+    margin-bottom: 6px;
+}
+
+.conta-topo small {
+    color: #68746c;
+}
+
+.conta-topo button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 30px;
+
+    color: #68746c;
+
+    cursor: pointer;
+}
+
+.campo-conta {
+    margin-bottom: 18px;
+}
+
+.campo-conta label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 7px;
+}
+
+.campo-conta input {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #d7ded8;
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.campo-conta input:focus {
+    border-color: #21863e;
+}
+
+.erro {
+    display: block;
+
+    color: #c0392b;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+}
+
+.botao-conta {
+    width: 100%;
+
+    border: none;
+
+    background: #21863e;
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 5px;
+}
+
+.botao-conta:hover {
+    background: #176b30;
+}
+
+.conta-aviso {
+    color: #7a857e;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    padding: 80px 10%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    background:
+        radial-gradient(
+            circle at 80% 40%,
+            #d8eadb,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #eef6ef,
+            #ffffff
+        );
+}
+
+.hero-conteudo {
+    max-width: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    background: #dcecdf;
+
+    color: #1c7038;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 58px;
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: #21863e;
+}
+
+.hero p {
+    color: #5f6c63;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+    max-width: 620px;
+}
+
+
+/* =========================
+   OFERTA
+========================= */
+
+.oferta {
+    background: white;
+
+    border: 1px solid #dbe4dc;
+
+    border-radius: 14px;
+
+    padding: 20px 25px;
+
+    width: fit-content;
+
+    margin: 0 auto 22px;
+
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.oferta strong {
+    color: #c17c16;
+
+    font-size: 12px;
+}
+
+.preco-antigo {
+    color: #89948d;
+
+    text-decoration: line-through;
+
+    font-size: 15px;
+
+    margin-top: 8px;
+}
+
+.preco {
+    font-size: 42px;
+
+    font-weight: bold;
+
+    margin: 3px 0;
+}
+
+.oferta small {
+    color: #718077;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botao {
+    display: inline-block;
+
+    background: #21863e;
+
+    color: white;
+
+    padding: 18px 28px;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    transition: .2s;
+}
+
+.botao:hover {
+    background: #176b30;
+
+    transform: translateY(-2px);
+}
+
+.seguranca {
+    color: #78847c;
+
+    font-size: 12px;
+
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   CAPA DO CURSO
+========================= */
+
+.hero-visual {
+    width: 430px;
+    height: 430px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.capa-curso {
+    width: 360px;
+    height: 360px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #183b25,
+            #0d1c13
+        );
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.25);
+
+    transform: rotate(3deg);
+}
+
+.imagem-capa {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.placeholder-capa {
+    position: absolute;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: white;
+
+    text-align: center;
+}
+
+.placeholder-icone {
+    font-size: 65px;
+
+    margin-bottom: 15px;
+}
+
+.placeholder-capa strong {
+    font-size: 16px;
+
+    letter-spacing: 1px;
+}
+
+.placeholder-capa small {
+    margin-top: 8px;
+
+    color: #b8c8bc;
+}
+
+.legenda-capa {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 45px 22px 22px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.9)
+    );
+
+    color: white;
+
+    text-align: center;
+}
+
+.legenda-capa strong {
+    display: block;
+
+    font-size: 19px;
+
+    margin-bottom: 6px;
+}
+
+.legenda-capa span {
+    display: block;
+
+    color: #d1ded4;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   APRENDA
+========================= */
+
+.aprenda {
+    max-width: 1100px;
+
+    margin: 90px auto;
+
+    padding: 0 20px;
+}
+
+.titulo {
+    text-align: center;
+
+    margin-bottom: 45px;
+}
+
+.titulo h2 {
+    font-size: 40px;
+
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.15;
+
+    margin-bottom: 15px;
+}
+
+.titulo p {
+    color: #69756d;
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.card {
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 30px 22px;
+
+    text-align: center;
+
+    border: 1px solid #e3e9e4;
+
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,.07);
+}
+
+.icone {
+    font-size: 40px;
+
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #68746c;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================
+   CHAMADA
+========================= */
+
+.chamada {
+    max-width: 1100px;
+
+    margin: 80px auto;
+
+    padding: 45px;
+
+    border-radius: 22px;
+
+    background: #10251a;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.chamada h2 {
+    font-size: 35px;
+
+    max-width: 600px;
+
+    margin-bottom: 12px;
+}
+
+.chamada p {
+    color: #c3d0c7;
+
+    line-height: 1.6;
+}
+
+.chamada-direita {
+    text-align: center;
+
+    min-width: 230px;
+}
+
+.chamada-direita span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #b7c6bb;
+}
+
+.chamada-direita strong {
+    display: block;
+
+    font-size: 40px;
+
+    margin: 5px 0 15px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+    text-align: center;
+
+    padding: 80px 20px 100px;
+}
+
+.final h2 {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.final p {
+    color: #69756d;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #0b1b11;
+
+    color: #aebbb1;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    font-size: 12px;
+
+    line-height: 2;
+}
+
+.logo-footer img {
+    max-width: 120px;
+    max-height: 45px;
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.chat {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 9997;
+}
+
+.chat-botao {
+    border: none;
+
+    background: #21863e;
+
+    color: white;
+
+    padding: 14px 20px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+}
+
+.chat-box {
+    position: absolute;
+
+    right: 0;
+    bottom: 65px;
+
+    width: 330px;
+    height: 430px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,.2);
+
+    display: none;
+
+    flex-direction: column;
+}
+
+.chat-box.aberto {
+    display: flex;
+}
+
+.chat-topo {
+    background: #10251a;
+
+    color: white;
+
+    padding: 16px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.chat-topo button {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
+
+.chat-mensagens {
+    flex: 1;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    background: #f5f7f5;
+}
+
+.mensagem {
+    max-width: 85%;
+
+    padding: 10px 13px;
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+}
+
+.mensagem.equipe {
+    background: white;
+
+    border: 1px solid #e1e7e2;
+
+    color: #425048;
+}
+
+.mensagem.usuario {
+    margin-left: auto;
+
+    background: #21863e;
+
+    color: white;
+
+    border-bottom-right-radius: 3px;
+}
+
+.chat-envio {
+    display: flex;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    border-top: 1px solid #e1e7e2;
+
+    background: white;
+}
+
+.chat-envio input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 1px solid #d7ded8;
+
+    border-radius: 20px;
+
+    padding: 10px 13px;
+
+    outline: none;
+}
+
+.chat-envio button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #21863e;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 850px) {
+
+    .topo {
+        padding: 0 25px;
+    }
+
+    .topo > span {
+        display: none;
+    }
+
+    .hero {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 60px 25px;
+    }
+
+    .hero-conteudo {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-visual {
+        width: 320px;
+        height: 320px;
+    }
+
+    .capa-curso {
+        width: 280px;
+        height: 280px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .chamada {
+        margin: 50px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .texto-conta {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .titulo h2 {
+        font-size: 32px;
+    }
+
+    .chamada h2 {
+        font-size: 28px;
+    }
+
+    .final h2 {
+        font-size: 32px;
+    }
+
+    .chat-box {
+        width: calc(100vw - 35px);
+    }
+
+    .chat-botao span {
+        display: none;
+    }
+
+    .conta-painel {
+        width: 100%;
+    }
+}

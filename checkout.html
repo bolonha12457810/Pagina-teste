@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checkout | Método Mestre da Pesca</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #f3f6f3;
+        }
+
+        .checkout-topo {
+            background: #10251a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+
+        #contador {
+            font-size: 22px;
+            margin-left: 8px;
+        }
+
+        .checkout {
+            min-height: 100vh;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .checkout-box {
+            width: 100%;
+            max-width: 520px;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,.08);
+        }
+
+        .checkout-box h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #68746c;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .produto-checkout {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: #f3f7f3;
+            border: 1px solid #dbe4dc;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 24px;
+        }
+
+        .produto-checkout-capa {
+            width: 95px;
+            height: 115px;
+            min-width: 95px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #10251a;
+        }
+
+        .produto-checkout-capa img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .produto-checkout-info {
+            flex: 1;
+        }
+
+        .produto-checkout-info > span {
+            display: block;
+            color: #1c7038;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: .5px;
+            margin-bottom: 7px;
+        }
+
+        .produto-checkout-info strong {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .produto-preco-antigo {
+            color: #89948d;
+            text-decoration: line-through;
+            font-size: 12px;
+        }
+
+        .produto-preco {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 2px 0;
+        }
+
+        .produto-checkout-info small {
+            color: #718077;
+            font-size: 11px;
+        }
+
+        .campo {
+            margin-bottom: 18px;
+        }
+
+        .campo label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d7ded8;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .campo input:focus {
+            border-color: #21863e;
+        }
+
+        .resumo {
+            background: #f3f7f3;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 25px 0;
+        }
+
+        .resumo-linha {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .resumo-linha:last-child {
+            margin-bottom: 0;
+        }
+
+        .total {
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        .compra-segura {
+            background: #f0f7f1;
+            border: 1px solid #d7e8d9;
+            color: #35533d;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .acesso-email {
+            background: #edf5ff;
+            border: 1px solid #d7e5f3;
+            color: #35516b;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .pagamento {
+            margin-bottom: 20px;
+        }
+
+        .pagamento h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .opcoes-pagamento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .opcao-pagamento {
+            border: 1px solid #d7ded8;
+            background: white;
+            padding: 13px 8px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .opcao-pagamento.ativo {
+            border-color: #21863e;
+            background: #f0f7f1;
+            color: #21863e;
+        }
+
+        .info-pagamento {
+            margin-top: 12px;
+            padding: 14px;
+            border-radius: 10px;
+            background: #f5f7f5;
+            color: #68746c;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .cartao-campos {
+            display: none;
+            margin-top: 12px;
+        }
+
+        .cartao-campos.ativo {
+            display: block;
+        }
+
+        .linha-cartao {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .cartao-campos input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d7ded8;
+            border-radius: 9px;
+            margin-bottom: 10px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .botao-pagar {
+            width: 100%;
+            border: none;
+            background: #21863e;
+            color: white;
+            padding: 17px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .botao-pagar:hover {
+            background: #176b30;
+        }
+
+        .voltar {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #68746c;
+            font-size: 13px;
+        }
+
+        @media (max-width: 550px) {
+
+            .produto-checkout {
+                align-items: flex-start;
+            }
+
+            .produto-checkout-capa {
+                width: 80px;
+                min-width: 80px;
+                height: 100px;
+            }
+
+            .checkout-box {
+                padding: 25px 20px;
+            }
+
+            .opcoes-pagamento {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="checkout-topo">
+
+    ⏰ CONDIÇÃO ESPECIAL POR TEMPO LIMITADO
+
+    <span>
+        — acaba em
+        <strong id="contador">00:00:00</strong>
+    </span>
+
+</div>
+
+
+<div class="checkout">
+
+    <div class="checkout-box">
+
+        <h1>
+            Finalize sua inscrição
+        </h1>
+
+        <p class="subtitulo">
+            Preencha seus dados abaixo para continuar
+            com seu acesso ao Método Mestre da Pesca.
+        </p>
+
+
+        <div class="produto-checkout">
+
+            <div class="produto-checkout-capa">
+
+                <img
+                    src="capa-curso.jpg"
+                    alt="Método Mestre da Pesca"
+                >
+
+            </div>
+
+            <div class="produto-checkout-info">
+
+                <span>
+                    MÉTODO MESTRE DA PESCA
+                </span>
+
+                <strong>
+                    Oferta especial
+                </strong>
+
+                <div class="produto-preco-antigo">
+                    De R$ 79,90
+                </div>
+
+                <div class="produto-preco">
+                    R$ 49,90
+                </div>
+
+                <small>
+                    Acesso online • Pagamento único
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="nome">
+                Nome completo
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite seu nome"
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="email">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu melhor e-mail"
+            >
+
+        </div>
+
+
+        <div class="resumo">
+
+            <div class="resumo-linha">
+
+                <span>
+                    Método Mestre da Pesca
+                </span>
+
+                <span>
+                    <s>R$ 79,90</s>
+                </span>
+
+            </div>
+
+
+            <div class="resumo-linha total">
+
+                <span>
+                    Oferta especial
+                </span>
+
+                <span>
+                    R$ 49,90
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="compra-segura">
+
+            🔒 <strong>Compra segura</strong>
+
+            <br>
+
+            Seus dados são protegidos durante
+            o processo de pagamento.
+
+        </div>
+
+
+        <div class="acesso-email">
+
+            📩 <strong>Seu acesso será enviado por e-mail</strong>
+
+            <br><br>
+
+            Após a confirmação do pagamento,
+            as informações para acessar o curso
+            serão enviadas para o e-mail informado
+            no cadastro.
+
+            <br><br>
+
+            Confira se o endereço de e-mail
+            foi digitado corretamente.
+
+        </div>
+
+
+        <div class="pagamento">
+
+            <h3>
+                Forma de pagamento
+            </h3>
+
+            <div class="opcoes-pagamento">
+
+                <button
+                    type="button"
+                    class="opcao-pagamento ativo"
+                    onclick="selecionarPagamento('pix', this)"
+                >
+                    ⚡ PIX
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao-pagamento"
+                    onclick="selecionarPagamento('cartao', this)"
+                >
+                    💳 CARTÃO
+                </button>
+
+                <button
+                    type="button"
+                    class="opcao-pagamento"
+                    onclick="selecionarPagamento('boleto', this)"
+                >
+                    🧾 BOLETO
+                </button>
+
+            </div>
+
+
+            <div
+                class="info-pagamento"
+                id="infoPagamento"
+            >
+                Após o pagamento, será gerado um
+                QR Code de pagamento.
+            </div>
+
+
+            <div
+                class="cartao-campos"
+                id="cartaoCampos"
+            >
+
+                <input
+                    type="text"
+                    placeholder="Número do cartão"
+                    inputmode="numeric"
+                >
+
+                <input
+                    type="text"
+                    placeholder="Nome impresso no cartão"
+                >
+
+                <div class="linha-cartao">
+
+                    <input
+                        type="text"
+                        placeholder="Validade"
+                    >
+
+                    <input
+                        type="text"
+                        placeholder="CVV"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="botao-pagar"
+            onclick="finalizarCompra()"
+        >
+            CONTINUAR PARA PAGAMENTO
+        </button>
+
+
+        <a
+            href="index.html"
+            class="voltar"
+        >
+            ← Voltar para a página anterior
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   CONTADOR ATÉ A PRÓXIMA MEIA-NOITE
+========================================= */
+
+function atualizarContador() {
+
+    const agora = new Date();
+
+    const meiaNoite = new Date();
+
+    meiaNoite.setHours(24, 0, 0, 0);
+
+    const diferenca =
+        meiaNoite.getTime() -
+        agora.getTime();
+
+    if (diferenca <= 0) {
+
+        document
+            .getElementById("contador")
+            .textContent = "00:00:00";
+
+        return;
+    }
+
+    const horas =
+        Math.floor(
+            diferenca /
+            (1000 * 60 * 60)
+        );
+
+    const minutos =
+        Math.floor(
+            (diferenca %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+    const segundos =
+        Math.floor(
+            (diferenca %
+            (1000 * 60)) /
+            1000
+        );
+
+    document
+        .getElementById("contador")
+        .textContent =
+            String(horas).padStart(2, "0") +
+            ":" +
+            String(minutos).padStart(2, "0") +
+            ":" +
+            String(segundos).padStart(2, "0");
+
+}
+
+atualizarContador();
+
+setInterval(
+    atualizarContador,
+    1000
+);
+
+
+/* =========================================
+   PAGAMENTO
+========================================= */
+
+let pagamentoSelecionado = "pix";
+
+
+function selecionarPagamento(tipo, botao) {
+
+    pagamentoSelecionado = tipo;
+
+    document
+        .querySelectorAll(".opcao-pagamento")
+        .forEach(function(elemento) {
+
+            elemento.classList.remove("ativo");
+
+        });
+
+    botao.classList.add("ativo");
+
+
+    const info =
+        document.getElementById("infoPagamento");
+
+    const cartao =
+        document.getElementById("cartaoCampos");
+
+
+    cartao.classList.remove("ativo");
+
+
+    if (tipo === "pix") {
+
+        info.innerHTML =
+            "Após o pagamento, será gerado um QR Code de pagamento.";
+
+    }
+
+
+    if (tipo === "cartao") {
+
+        info.innerHTML =
+            "Informe os dados do seu cartão para continuar.";
+
+        cartao.classList.add("ativo");
+
+    }
+
+
+    if (tipo === "boleto") {
+
+        info.innerHTML =
+            "Após continuar, será gerado o boleto para pagamento.";
+
+    }
+
+}
+
+
+/* =========================================
+   FINALIZAR
+========================================= */
+
+function finalizarCompra() {
+
+    const nome =
+        document
+            .getElementById("nome")
+            .value
+            .trim();
+
+    const email =
+        document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+    if (!nome || !email) {
+
+        alert(
+            "Preencha seu nome e e-mail para continuar."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !email.includes("@") ||
+        !email.includes(".")
+    ) {
+
+        alert(
+            "Digite um e-mail válido."
+        );
+
+        return;
+
+    }
+
+
+    if (pagamentoSelecionado === "pix") {
+
+        alert(
+            "Dados preenchidos com sucesso!\n\n" +
+            "Em uma integração real, aqui seria " +
+            "gerado o QR Code de pagamento."
+        );
+
+        return;
+
+    }
+
+
+    if (pagamentoSelecionado === "boleto") {
+
+        alert(
+            "Dados preenchidos com sucesso!\n\n" +
+            "Em uma integração real, aqui seria " +
+            "gerado o boleto para pagamento."
+        );
+
+        return;
+
+    }
+
+
+    if (pagamentoSelecionado === "cartao") {
+
+        const campos =
+            document.querySelectorAll(
+                "#cartaoCampos input"
+            );
+
+        for (
+            let i = 0;
+            i < campos.length;
+            i++
+        ) {
+
+            if (
+                campos[i]
+                    .value
+                    .trim() === ""
+            ) {
+
+                alert(
+                    "Preencha todos os dados do cartão."
+                );
+
+                return;
+
+            }
+
+        }
+
+        alert(
+            "Dados preenchidos com sucesso!\n\n" +
+            "Em uma integração real, aqui seria " +
+            "processado o pagamento."
+        );
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
